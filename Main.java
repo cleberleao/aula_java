@@ -1,14 +1,22 @@
+import java.util.Scanner;
+
 //Entrar com um número e imprimi-lo caso seja
 // maior que 20
 public class Main {
     public static void main(String[] args) {
-        double num = 10;
-        if(num > 20){
-            System.out.println("O numero é maor que 20: "+num);
+        double num;
+        Scanner valor = new Scanner(System.in);
+        System.out.println("Digite um numero: ");
+        num = valor.nextDouble();
+
+        if(num > 20.0){
+            System.out.println("O numero é maior que 20: "+num);
         }
-        else if(num <= 20){
+        else if(num <= 20.0){
             System.out.println("O número é menor que 20: "+num);
         }
+
+
     }
 }
 
