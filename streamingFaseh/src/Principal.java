@@ -9,7 +9,7 @@ public class Principal {
         filme.avaliarFilme(4);
         filme.avaliarFilme(6);
         filme.avaliarFilme(8);
-
+        System.out.println();
         System.out.println(filme.mediaDasNotas());
     }
 }
