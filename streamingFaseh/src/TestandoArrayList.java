@@ -6,7 +6,7 @@ public class TestandoArrayList {
         String aula1 = "Modelando aula de vetor";
         String aula2 = "Aprendendo sobre lista";
         String aula3 = "trabalhando com classe e método";
-        int num = 1;
+
         //vetor - Array
         ArrayList<String> aulas = new ArrayList<>();
         aulas.add(aula1);
