@@ -8,9 +8,14 @@ public class Principal {
         filme.setGenero("Animação");
         filme.setAvaliacao(5);
 
-        System.out.println(filme.getNomeDoFilme());
-        System.out.println(filme.getDuracao());
-        System.out.println(filme.getAnoFilme());
-        System.out.println(filme.getGenero());
+//        System.out.println(filme.getNomeDoFilme());
+//        System.out.println(filme.getDuracao());
+//        System.out.println(filme.getAnoFilme());
+//        System.out.println(filme.getGenero());
+
+        //testar numero perfeito
+        NumeroPerfeito numeroPerfeito = new NumeroPerfeito();
+        boolean retorno = numeroPerfeito.numeroPerfeito(10);
+        System.out.println(retorno);
     }
 }
