@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Teste2 {
     static Connection conexao = null;
     static Scanner ler = new Scanner(System.in);
+    static Scanner nomeScanner = new Scanner(System.in);
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         int idPessoa;
         String nome, email;
@@ -14,11 +15,11 @@ public class Teste2 {
         System.out.println("Digite o ID");
         idPessoa = ler.nextInt();
         System.out.println("Digite o Nome");
-        nome = ler.next();
+        nome = nomeScanner.nextLine();
         System.out.println("Digite o Email");
         email = ler.next();
         System.out.println("Digite o Peso");
-        peso = ler.nextFloat();
+        peso = Float.parseFloat(ler.next());
 
         Pessoa p = new Pessoa(idPessoa,nome,email,peso);
 
@@ -27,14 +28,21 @@ public class Teste2 {
     }
 
     private static void inserirPessoa(Pessoa plida) throws SQLException, ClassNotFoundException {
-        conexao = ConexaoBD.getInstance();
-        String sql = "insert into pessoa (idPessoa, nome, email, peso) values (?,?,?,?)";
-        PreparedStatement stmt = conexao.prepareStatement(sql);
-        stmt.setInt(1, plida.getId());
-        stmt.setString(2, plida.getNome());
-        stmt.setString(3, plida.getEmail());
-        stmt.setFloat(4, plida.getPeso());
-        stmt.execute();
-        stmt.close();
+        try{
+            conexao = ConexaoBD.getInstance();
+            String sql = "insert into pessoa (idPessoa, nome, email, peso) values (?,?,?,?)";
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, plida.getId());
+            stmt.setString(2, plida.getNome());
+            stmt.setString(3, plida.getEmail());
+            stmt.setDouble(4, plida.getPeso());
+            stmt.execute();
+            stmt.close();
+            System.out.println("Pessoa Cadastrada com Sucesso");
+        } catch (Exception e){
+            System.out.println("NÃO FOI POSSIVEL CADASTRAR PESSOA");
+            e.printStackTrace();
+        }
+
     }
 }
